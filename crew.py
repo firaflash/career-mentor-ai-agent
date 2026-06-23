@@ -1,10 +1,10 @@
 from crewai import Crew
-from tasks import resercher_task, writter_task
-from agents import researcher_agent, writter_agent 
+from tasks import researcher_task, writer_task
+from agents import researcher_agent, writer_agent 
 
 crew = Crew(
-    agents = [ researcher_agent , writter_agent],
-    tasks = [researcher_task , writter_task],
+    agents = [ researcher_agent , writer_agent],
+    tasks = [researcher_task , writer_task],
     verbose= True
 )
 
