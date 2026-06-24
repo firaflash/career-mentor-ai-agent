@@ -2,7 +2,8 @@ from crew import crew
 
 def run():
     result = crew.kickoff(inputs={
-        "topic": "What are the latest advancements in AI research and their potential impact on society?"
+        "background": "I am a beginner in programming. I know basic HTML and CSS, but no JavaScript or backend languages.",
+    "goal": "I want to become a Full-Stack Backend Engineer using Python and Django within 6 months."
     })
     print("\n \n the result is " , result)
 
