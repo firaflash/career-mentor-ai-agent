@@ -75,5 +75,5 @@ reviewer_agent = Agent(
     llm=llm,
     verbose=True,
     max_iter=1,
-    allow_delegation=False # Allows the reviewer to ask the planner to fix things if the plan is bad!
+    allow_delegation=True # Allows the reviewer to ask the planner to fix things if the plan is bad!
 )
