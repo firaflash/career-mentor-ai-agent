@@ -19,24 +19,17 @@ from crewai import Agent, Task, Crew, LLM
 
 
 # Initialize Large Language Model (LLM) of your choice (see all models on our Models page)
-llm = LLM(
-    model="groq/llama-3.1-70b-versatile",
-    temperature=0.5
-)
-from crewai import Agent , LLM
+llm = LLM(model="groq/llama-3.1-8b-instant")
+
 
 # 1. SKILL ASSESSMENT AGENT
 skill_assessment_agent = Agent(
     role="Senior Career Skill Assessor",
-    goal="Analyze the user's current background and target career goal to identify specific, actionable skill gaps.",
-    backstory=(
-        "You are an expert career coach and technical recruiter with years of experience. "
-        "You know exactly what hard and soft skills are required for every tech role. "
-        "You are analytical and precise. You don't just list missing skills; you categorize them by priority."
-    ),
+    goal="Identify top 10 missing skills and categorize them by priority.",
+    backstory="Experienced tech career coach specializing in skill-gap analysis.",
     llm=llm, # Change to your preferred LLM
     verbose=True,
-    max_iter=5,
+    max_iter=1,
     allow_delegation=False
 )
 
@@ -51,7 +44,7 @@ roadmap_planner_agent = Agent(
     ),
     llm=llm,
     verbose=True,
-    max_iter=5,
+    max_iter=1,
     allow_delegation=False
 )
 
@@ -66,7 +59,7 @@ resource_agent = Agent(
     ),
     llm=llm,
     verbose=True,
-    max_iter=5,
+    max_iter=1,
     allow_delegation=False
 )
 
@@ -81,6 +74,6 @@ reviewer_agent = Agent(
     ),
     llm=llm,
     verbose=True,
-    max_iter=5,
-    allow_delegation=True # Allows the reviewer to ask the planner to fix things if the plan is bad!
+    max_iter=1,
+    allow_delegation=False # Allows the reviewer to ask the planner to fix things if the plan is bad!
 )
